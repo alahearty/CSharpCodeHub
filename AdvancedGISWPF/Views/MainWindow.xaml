@@ -1,0 +1,418 @@
+<Window x:Class="AdvancedGISWPF.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fluent="urn:fluent-ribbon"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+        Title="Advanced GIS WPF Application - Geographic Information System"
+        Height="900" Width="1400"
+        WindowState="Maximized"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Window.Resources>
+        <Style x:Key="RibbonTabStyle" TargetType="fluent:RibbonTabItem">
+            <Setter Property="Header" Value="{Binding Header}"/>
+            <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Fluent Ribbon -->
+        <fluent:Ribbon Grid.Row="0" x:Name="MainRibbon">
+            <fluent:Ribbon.ApplicationMenu>
+                <fluent:ApplicationMenu>
+                    <fluent:ApplicationMenu.MainPane>
+                        <fluent:MainPane>
+                            <fluent:Button Header="New Project" 
+                                          Icon="pack://application:,,,/Images/new-project.png"
+                                          Command="{Binding NewProjectCommand}"/>
+                            <fluent:Button Header="Open Project" 
+                                          Icon="pack://application:,,,/Images/open-project.png"
+                                          Command="{Binding OpenProjectCommand}"/>
+                            <fluent:Button Header="Save Project" 
+                                          Icon="pack://application:,,,/Images/save-project.png"
+                                          Command="{Binding SaveProjectCommand}"/>
+                            <fluent:Separator/>
+                            <fluent:Button Header="Import Data" 
+                                          Icon="pack://application:,,,/Images/import.png"
+                                          Command="{Binding ImportDataCommand}"/>
+                            <fluent:Button Header="Export Data" 
+                                          Icon="pack://application:,,,/Images/export.png"
+                                          Command="{Binding ExportDataCommand}"/>
+                            <fluent:Separator/>
+                            <fluent:Button Header="Settings" 
+                                          Icon="pack://application:,,,/Images/settings.png"
+                                          Command="{Binding SettingsCommand}"/>
+                            <fluent:Button Header="Exit" 
+                                          Icon="pack://application:,,,/Images/exit.png"
+                                          Command="{Binding ExitCommand}"/>
+                        </fluent:MainPane>
+                    </fluent:ApplicationMenu.MainPane>
+                </fluent:ApplicationMenu>
+            </fluent:Ribbon.ApplicationMenu>
+
+            <!-- Home Tab -->
+            <fluent:RibbonTabItem Header="Home">
+                <fluent:RibbonGroupBox Header="Project">
+                    <fluent:Button Header="New" 
+                                  Icon="pack://application:,,,/Images/new.png"
+                                  Command="{Binding NewProjectCommand}"/>
+                    <fluent:Button Header="Open" 
+                                  Icon="pack://application:,,,/Images/open.png"
+                                  Command="{Binding OpenProjectCommand}"/>
+                    <fluent:Button Header="Save" 
+                                  Icon="pack://application:,,,/Images/save.png"
+                                  Command="{Binding SaveProjectCommand}"/>
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Data">
+                    <fluent:Button Header="Import" 
+                                  Icon="pack://application:,,,/Images/import.png"
+                                  Command="{Binding ImportDataCommand}"/>
+                    <fluent:Button Header="Export" 
+                                  Icon="pack://application:,,,/Images/export.png"
+                                  Command="{Binding ExportDataCommand}"/>
+                    <fluent:Button Header="Database" 
+                                  Icon="pack://application:,,,/Images/database.png"
+                                  Command="{Binding DatabaseCommand}"/>
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Analysis">
+                    <fluent:Button Header="Spatial Analysis" 
+                                  Icon="pack://application:,,,/Images/analysis.png"
+                                  Command="{Binding SpatialAnalysisCommand}"/>
+                    <fluent:Button Header="Statistics" 
+                                  Icon="pack://application:,,,/Images/stats.png"
+                                  Command="{Binding StatisticsCommand}"/>
+                    <fluent:Button Header="Charts" 
+                                  Icon="pack://application:,,,/Images/charts.png"
+                                  Command="{Binding ChartsCommand}"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <!-- Map Tab -->
+            <fluent:RibbonTabItem Header="Map">
+                <fluent:RibbonGroupBox Header="Navigation">
+                    <fluent:Button Header="Zoom In" 
+                                  Icon="pack://application:,,,/Images/zoom-in.png"
+                                  Command="{Binding ZoomInCommand}"/>
+                    <fluent:Button Header="Zoom Out" 
+                                  Icon="pack://application:,,,/Images/zoom-out.png"
+                                  Command="{Binding ZoomOutCommand}"/>
+                    <fluent:Button Header="Pan" 
+                                  Icon="pack://application:,,,/Images/pan.png"
+                                  Command="{Binding PanCommand}"/>
+                    <fluent:Button Header="Full Extent" 
+                                  Icon="pack://application:,,,/Images/full-extent.png"
+                                  Command="{Binding FullExtentCommand}"/>
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Layers">
+                    <fluent:Button Header="Add Layer" 
+                                  Icon="pack://application:,,,/Images/add-layer.png"
+                                  Command="{Binding AddLayerCommand}"/>
+                    <fluent:Button Header="Remove Layer" 
+                                  Icon="pack://application:,,,/Images/remove-layer.png"
+                                  Command="{Binding RemoveLayerCommand}"/>
+                    <fluent:Button Header="Layer Properties" 
+                                  Icon="pack://application:,,,/Images/layer-properties.png"
+                                  Command="{Binding LayerPropertiesCommand}"/>
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Selection">
+                    <fluent:Button Header="Select" 
+                                  Icon="pack://application:,,,/Images/select.png"
+                                  Command="{Binding SelectCommand}"/>
+                    <fluent:Button Header="Clear Selection" 
+                                  Icon="pack://application:,,,/Images/clear-selection.png"
+                                  Command="{Binding ClearSelectionCommand}"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <!-- Analysis Tab -->
+            <fluent:RibbonTabItem Header="Analysis">
+                <fluent:RibbonGroupBox Header="Spatial Analysis">
+                    <fluent:Button Header="Buffer" 
+                                  Icon="pack://application:,,,/Images/buffer.png"
+                                  Command="{Binding BufferCommand}"/>
+                    <fluent:Button Header="Intersect" 
+                                  Icon="pack://application:,,,/Images/intersect.png"
+                                  Command="{Binding IntersectCommand}"/>
+                    <fluent:Button Header="Union" 
+                                  Icon="pack://application:,,,/Images/union.png"
+                                  Command="{Binding UnionCommand}"/>
+                    <fluent:Button Header="Distance" 
+                                  Icon="pack://application:,,,/Images/distance.png"
+                                  Command="{Binding DistanceCommand}"/>
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Statistical Analysis">
+                    <fluent:Button Header="Descriptive Stats" 
+                                  Icon="pack://application:,,,/Images/descriptive-stats.png"
+                                  Command="{Binding DescriptiveStatsCommand}"/>
+                    <fluent:Button Header="Spatial Autocorrelation" 
+                                  Icon="pack://application:,,,/Images/spatial-autocorr.png"
+                                  Command="{Binding SpatialAutocorrCommand}"/>
+                    <fluent:Button Header="Hot Spot Analysis" 
+                                  Icon="pack://application:,,,/Images/hotspot.png"
+                                  Command="{Binding HotSpotCommand}"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <!-- View Tab -->
+            <fluent:RibbonTabItem Header="View">
+                <fluent:RibbonGroupBox Header="Layout">
+                    <fluent:Button Header="Print Layout" 
+                                  Icon="pack://application:,,,/Images/print-layout.png"
+                                  Command="{Binding PrintLayoutCommand}"/>
+                    <fluent:Button Header="Export Map" 
+                                  Icon="pack://application:,,,/Images/export-map.png"
+                                  Command="{Binding ExportMapCommand}"/>
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Windows">
+                    <fluent:Button Header="Layer Manager" 
+                                  Icon="pack://application:,,,/Images/layer-manager.png"
+                                  Command="{Binding LayerManagerCommand}"/>
+                    <fluent:Button Header="Attribute Table" 
+                                  Icon="pack://application:,,,/Images/attribute-table.png"
+                                  Command="{Binding AttributeTableCommand}"/>
+                    <fluent:Button Header="Toolbox" 
+                                  Icon="pack://application:,,,/Images/toolbox.png"
+                                  Command="{Binding ToolboxCommand}"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
+
+        <!-- Toolbar -->
+        <ToolBarTray Grid.Row="1" Background="{DynamicResource MaterialDesignToolBarBackground}">
+            <ToolBar Background="Transparent" BorderThickness="0">
+                <Button Content="🗺️ Map" Command="{Binding ShowMapCommand}" 
+                        Style="{StaticResource MaterialDesignToolButton}"/>
+                <Button Content="📊 Charts" Command="{Binding ShowChartsCommand}" 
+                        Style="{StaticResource MaterialDesignToolButton}"/>
+                <Button Content="📋 Data" Command="{Binding ShowDataCommand}" 
+                        Style="{StaticResource MaterialDesignToolButton}"/>
+                <Button Content="🔍 Analysis" Command="{Binding ShowAnalysisCommand}" 
+                        Style="{StaticResource MaterialDesignToolButton}"/>
+                <Separator/>
+                <Button Content="⚙️ Settings" Command="{Binding SettingsCommand}" 
+                        Style="{StaticResource MaterialDesignToolButton}"/>
+                <Button Content="❓ Help" Command="{Binding HelpCommand}" 
+                        Style="{StaticResource MaterialDesignToolButton}"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <!-- Main Content Area -->
+        <Grid Grid.Row="2" x:Name="MainContentArea">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Panel - Layer Manager -->
+            <materialDesign:Card Grid.Column="0" Margin="8" Padding="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Text="Layer Manager" 
+                               Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                               Margin="0,0,0,8"/>
+                    
+                    <TreeView Grid.Row="1" x:Name="LayerTreeView" 
+                              ItemsSource="{Binding Layers}"
+                              Background="Transparent">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Sublayers}">
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding IsVisible}" 
+                                              Margin="0,0,4,0"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- Center Panel - Map View -->
+            <materialDesign:Card Grid.Column="1" Margin="8" Padding="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Map Control Placeholder -->
+                    <Border Grid.Row="0" Background="{DynamicResource MaterialDesignDivider}"
+                            BorderBrush="{DynamicResource MaterialDesignDivider}"
+                            BorderThickness="1" CornerRadius="4">
+                        <Grid>
+                            <TextBlock Text="🗺️ Map View Area" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                       Foreground="{DynamicResource MaterialDesignBodyLight}"/>
+                            
+                            <!-- Map Controls Overlay -->
+                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" 
+                                        Margin="8" Orientation="Horizontal">
+                                <Button Content="🔍" Command="{Binding ZoomInCommand}" 
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        Margin="2"/>
+                                <Button Content="🔎" Command="{Binding ZoomOutCommand}" 
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        Margin="2"/>
+                                <Button Content="✋" Command="{Binding PanCommand}" 
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        Margin="2"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    
+                    <!-- Status Bar -->
+                    <StatusBar Grid.Row="1" Background="{DynamicResource MaterialDesignToolBarBackground}">
+                        <StatusBarItem>
+                            <TextBlock Text="Ready" x:Name="StatusText"/>
+                        </StatusBarItem>
+                        <Separator/>
+                        <StatusBarItem>
+                            <TextBlock Text="Scale: 1:1000" x:Name="ScaleText"/>
+                        </StatusBarItem>
+                        <Separator/>
+                        <StatusBarItem>
+                            <TextBlock Text="Coordinates: 0, 0" x:Name="CoordinatesText"/>
+                        </StatusBarItem>
+                    </StatusBar>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- Right Panel - Properties/Charts -->
+            <materialDesign:Card Grid.Column="2" Margin="8" Padding="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Text="Properties & Charts" 
+                               Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                               Margin="0,0,0,8"/>
+                    
+                    <TabControl Grid.Row="1" x:Name="PropertiesTabControl">
+                        <TabItem Header="Properties">
+                            <ScrollViewer>
+                                <StackPanel>
+                                    <TextBlock Text="Layer Properties" 
+                                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                               Margin="0,0,0,8"/>
+                                    <TextBox Text="{Binding SelectedLayerName}" 
+                                             materialDesign:HintAssist.Hint="Layer Name"
+                                             Margin="0,0,0,8"/>
+                                    <TextBox Text="{Binding SelectedLayerDescription}" 
+                                             materialDesign:HintAssist.Hint="Description"
+                                             Margin="0,0,0,8"/>
+                                    <ComboBox materialDesign:HintAssist.Hint="Geometry Type"
+                                              ItemsSource="{Binding GeometryTypes}"
+                                              SelectedItem="{Binding SelectedGeometryType}"
+                                              Margin="0,0,0,8"/>
+                                    <Button Content="Apply Changes" 
+                                            Command="{Binding ApplyPropertiesCommand}"
+                                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
+                        
+                        <TabItem Header="Charts">
+                            <ScrollViewer>
+                                <StackPanel>
+                                    <TextBlock Text="Data Visualization" 
+                                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                               Margin="0,0,0,8"/>
+                                    
+                                    <!-- LiveCharts Example -->
+                                    <lvc:CartesianChart Height="200" Margin="0,0,0,8">
+                                        <lvc:CartesianChart.Series>
+                                            <lvc:LineSeries Title="Temperature Trend" 
+                                                            Values="{Binding TemperatureData}"
+                                                            PointGeometry="{x:Null}"
+                                                            LineSmoothness="0.5"/>
+                                        </lvc:CartesianChart.Series>
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Time" Labels="{Binding TimeLabels}"/>
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Temperature (°C)" LabelFormatter="{Binding TemperatureFormatter}"/>
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    
+                                    <!-- OxyPlot Example -->
+                                    <oxy:PlotView Height="200" Model="{Binding SpatialDataPlot}"/>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
+                        
+                        <TabItem Header="Statistics">
+                            <ScrollViewer>
+                                <StackPanel>
+                                    <TextBlock Text="Statistical Summary" 
+                                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                               Margin="0,0,0,8"/>
+                                    
+                                    <DataGrid ItemsSource="{Binding StatisticsData}" 
+                                              AutoGenerateColumns="False" 
+                                              Height="300"
+                                              IsReadOnly="True">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Metric" Binding="{Binding Metric}"/>
+                                            <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="3" Background="{DynamicResource MaterialDesignToolBarBackground}">
+            <StatusBarItem>
+                <TextBlock Text="Advanced GIS WPF Application v1.0" 
+                           FontWeight="Bold"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock Text="Database: Connected" x:Name="DatabaseStatusText"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock Text="Memory Usage: 128 MB" x:Name="MemoryStatusText"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="{Binding CurrentDateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" 
+                           x:Name="DateTimeText"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
