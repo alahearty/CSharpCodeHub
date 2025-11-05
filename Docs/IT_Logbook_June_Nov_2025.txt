@@ -1,0 +1,1040 @@
+================================================================================
+IT TRAINING LOG BOOK - SYNCGRASS LIMITED
+Student: [Student Name]
+Period: June 3, 2025 - November 20, 2025
+================================================================================
+
+WEEK 1 - JUNE 2025
+================================================================================
+
+Monday, June 2, 2025
+- Orientation and introduction to IT training program at SyncGrass Limited
+- Overview of training objectives: C# Development, PostgreSQL, OOP, SOLID principles
+- Setup of development environment: Visual Studio, PostgreSQL, .NET SDK
+- Introduction to version control: Git and GitHub fundamentals
+- Installed Git and created GitHub account
+- Configured Git user name and email settings
+
+Tuesday, June 3, 2025
+- Introduction to C# programming fundamentals
+- Understanding variables, data types, and basic syntax
+- Created first C# console application in CSharpBeginnerCodes project
+- Introduction to PostgreSQL database management system
+- Installed PostgreSQL and pgAdmin on development machine
+- Git basics: Understanding repositories, commits, and staging area
+- Initialized first Git repository for CSharpBeginnerCodes project
+
+Wednesday, June 4, 2025
+- PostgreSQL fundamentals: Database creation and management
+- Understanding tables, columns, and data types in PostgreSQL
+- Practiced basic SQL queries: SELECT, INSERT, UPDATE, DELETE
+- Introduction to Relational Database Management System (RDBMS) concepts
+- Created sample database schema for practice
+
+Thursday, June 5, 2025
+- C# object-oriented programming basics: Classes and Objects
+- Understanding encapsulation and access modifiers
+- Created Student class with properties and methods
+- Practiced database connections using Npgsql library
+- Connected C# application to PostgreSQL database
+
+Friday, June 6, 2025
+- Deep dive into PostgreSQL: Primary keys, foreign keys, and constraints
+- Understanding database relationships (One-to-One, One-to-Many, Many-to-Many)
+- Implemented StudentGradeCalculator application with OOP principles
+- Created database schema for student grade management system
+- Integrated C# application with PostgreSQL for data persistence
+- Git fundamentals: Making commits, commit messages best practices
+- Created GitHub repository and pushed StudentGradeCalculator project
+
+WEEK 2 - JUNE 2025
+================================================================================
+
+Monday, June 9, 2025
+- Advanced PostgreSQL: Joins, subqueries, and aggregate functions
+- Understanding JOIN types (INNER, LEFT, RIGHT, FULL OUTER)
+- Practiced complex SQL queries with multiple table joins
+- Enhanced StudentGradeCalculator with database integration
+- Implemented GPA calculation logic using database queries
+- Git workflow: Understanding .gitignore files
+- Created .gitignore for C# projects and committed changes
+
+Tuesday, June 10, 2025
+- C# inheritance: Understanding base classes and derived classes
+- Created class hierarchies for different account types
+- Started working on BankingSystem project
+- Implemented BankAccount base class with derived classes (SavingsAccount, CheckingAccount)
+- Practiced method overriding and virtual methods
+
+Wednesday, June 11, 2025
+- Polymorphism in C#: Understanding compile-time and runtime polymorphism
+- Implemented polymorphic behavior in BankingSystem
+- Created IInterestBearing interface for interface-based polymorphism
+- Database normalization: Understanding 1NF, 2NF, 3NF
+- Designed normalized database schema for banking system
+
+Thursday, June 12, 2025
+- PostgreSQL transactions: ACID properties and transaction management
+- Implemented transaction handling in BankingSystem
+- Created TransactionService class following Single Responsibility Principle
+- Practiced error handling and exception management in database operations
+- Implemented rollback mechanisms for failed transactions
+
+Friday, June 13, 2025
+- Abstraction in OOP: Abstract classes and interfaces
+- Created BusinessAccount class extending BankingSystem
+- Implemented AccountService and NotificationService classes
+- Designed PostgreSQL database schema for banking transactions
+- Integrated banking system with PostgreSQL database
+- Git branching: Creating and switching branches
+- Created feature branch for BankingSystem project on GitHub
+
+WEEK 3 - JUNE 2025
+================================================================================
+
+Monday, June 16, 2025
+- Introduction to SOLID principles: Single Responsibility Principle (SRP)
+- Refactored BankingSystem to follow SRP
+- Separated concerns into AccountService, TransactionService, NotificationService
+- PostgreSQL stored procedures and functions
+- Created stored procedures for common banking operations
+- Git commit practices: Creating meaningful commit messages
+- Committed refactored BankingSystem code with descriptive messages
+
+Tuesday, June 17, 2025
+- Open/Closed Principle (OCP): Extending functionality without modification
+- Enhanced BankingSystem to support new account types without changing existing code
+- Implemented plugin-like architecture for extensibility
+- PostgreSQL indexes: Understanding performance optimization
+- Created indexes on frequently queried columns
+
+Wednesday, June 18, 2025
+- Liskov Substitution Principle (LSP): Ensuring derived classes are substitutable
+- Refactored account classes to properly implement LSP
+- Worked on ShapeCalculator project: Understanding inheritance with shapes
+- Created base IShape interface and derived classes (Circle, Rectangle, Triangle)
+- Implemented area calculation methods using polymorphism
+
+Thursday, June 19, 2025
+- Interface Segregation Principle (ISP): Creating focused interfaces
+- Created IColorable, IResizable, IDrawable interfaces for ShapeCalculator
+- Implemented Square and Ellipse classes following ISP
+- PostgreSQL views: Creating virtual tables for data access
+- Created database views for reporting and analytics
+
+Friday, June 20, 2025
+- Dependency Inversion Principle (DIP): Depending on abstractions
+- Implemented ICalculationStrategy interface in ShapeCalculator
+- Created StandardCalculationStrategy, PreciseCalculationStrategy, FastCalculationStrategy
+- Refactored ShapeCalculator to use strategy pattern
+- Practiced dependency injection in C# applications
+- Git merging: Merging branches and resolving conflicts
+- Merged ShapeCalculator feature branch to main branch on GitHub
+
+WEEK 4 - JUNE 2025
+================================================================================
+
+Monday, June 23, 2025
+- Design Patterns: Factory Pattern implementation
+- Created ShapeFactory class for object creation
+- Implemented decorator pattern with BorderedShapeDecorator, ColoredShapeDecorator
+- PostgreSQL triggers: Understanding database automation
+- Created triggers for audit logging in database
+
+Tuesday, June 24, 2025
+- Advanced C#: Collections and LINQ
+- Worked on FileManagementSystem project
+- Implemented file operations using FileInfo class
+- Created FileManager service with collection-based operations
+- Practiced LINQ queries for data manipulation
+
+Wednesday, June 25, 2025
+- File I/O operations in C#: Reading, writing, and managing files
+- Enhanced FileManagementSystem with directory operations
+- Implemented file search and filtering functionality
+- PostgreSQL COPY command: Bulk data import/export
+- Practiced importing CSV data into PostgreSQL tables
+
+Thursday, June 26, 2025
+- Error handling and exception management
+- Implemented try-catch blocks in FileManagementSystem
+- Created custom exception classes
+- PostgreSQL error handling: Understanding error codes and messages
+- Implemented robust error handling in database operations
+
+Friday, June 27, 2025
+- Working with collections: Lists, Dictionaries, and custom collections
+- Enhanced InventoryManagementSystem project
+- Created Product class with collection-based inventory management
+- Implemented CRUD operations for inventory items
+- Practiced data validation and business logic implementation
+- GitHub collaboration: Forking and cloning repositories
+- Created GitHub repository for InventoryManagementSystem and pushed code
+
+WEEK 5 - JUNE/JULY 2025
+================================================================================
+
+Monday, June 30, 2025
+- Data Analytics introduction: Understanding data analysis concepts
+- Started WeatherDataAnalyzer project
+- Created WeatherRecord model class
+- Implemented data collection and storage functionality
+- Introduction to statistical analysis in C#
+
+Tuesday, July 1, 2025
+- PostgreSQL aggregate functions: SUM, AVG, COUNT, MAX, MIN
+- Created database schema for weather data analysis
+- Implemented temperature and precipitation analysis in WeatherDataAnalyzer
+- Practiced GROUP BY and HAVING clauses for data aggregation
+- Created analytical queries for weather patterns
+- Git log and history: Viewing commit history and differences
+- Practiced git log, git diff, and git show commands
+
+Wednesday, July 2, 2025
+- Statistical analysis: Mean, median, mode calculations
+- Enhanced WeatherDataAnalyzer with statistical methods
+- Implemented seasonal pattern recognition
+- Created PostgreSQL functions for statistical calculations
+- Practiced data visualization concepts
+
+Thursday, July 3, 2025
+- Time series analysis: Understanding trends and patterns
+- Implemented climate trend analysis in WeatherDataAnalyzer
+- Created database queries for time-based data analysis
+- Practiced window functions in PostgreSQL (ROW_NUMBER, RANK, LAG, LEAD)
+- Implemented extreme weather detection algorithms
+
+Friday, July 4, 2025
+- Data visualization: Console-based charts and graphs
+- Enhanced WeatherDataAnalyzer with visualization features
+- Created methods for displaying data trends
+- PostgreSQL reporting: Creating comprehensive data reports
+- Practiced data export functionality
+- GitHub repository management: Creating README files
+- Created comprehensive README.md for WeatherDataAnalyzer on GitHub
+
+WEEK 6 - JULY 2025
+================================================================================
+
+Monday, July 7, 2025
+- Introduction to NDDC (Normalized Database Design Concepts) modeling
+- Understanding entity-relationship modeling
+- Created ER diagrams for banking system database
+- Practiced normalization techniques for NDDC compliance
+- Designed normalized schema for inventory management
+
+Tuesday, July 8, 2025
+- NDDC modeling: Advanced entity relationships
+- Created comprehensive ER diagram for student grade system
+- Implemented junction tables for many-to-many relationships
+- Designed database schema following NDDC principles
+- Practiced denormalization strategies for performance
+
+Wednesday, July 9, 2025
+- Text-based game development: Command pattern implementation
+- Started TextAdventureGame project
+- Created ICommand interface and command classes (MoveCommand, TakeCommand)
+- Implemented location-based game world
+- Created Player and Item entity classes
+
+Thursday, July 10, 2025
+- Game engine architecture: Understanding game loops and state management
+- Enhanced TextAdventureGame with GameEngine class
+- Implemented player inventory and item management
+- Created game state persistence using file I/O
+- Practiced game logic implementation
+
+Friday, July 11, 2025
+- Advanced game features: Item usage and location connections
+- Completed TextAdventureGame core functionality
+- Implemented game save/load functionality
+- Created game command parser
+- Practiced testing and debugging game logic
+- Git tagging: Creating version tags for releases
+- Created version tags for completed TextAdventureGame project
+
+WEEK 7 - JULY 2025
+================================================================================
+
+Monday, July 14, 2025
+- RPG game development: Combat system design
+- Started ConsoleRPG project
+- Created ICharacter and ICombatant interfaces
+- Implemented Player class with stats and inventory
+- Designed combat system architecture
+
+Tuesday, July 15, 2025
+- Turn-based combat: Understanding combat mechanics
+- Implemented CombatSystem class for ConsoleRPG
+- Created turn-based battle logic
+- Implemented skill system with different abilities
+- Practiced game balance and algorithm design
+
+Wednesday, July 16, 2025
+- Character progression: Experience and leveling systems
+- Enhanced ConsoleRPG with XP and leveling mechanics
+- Implemented stat increases on level up
+- Created enemy AI for random encounters
+- Practiced game state management
+
+Thursday, July 17, 2025
+- Advanced OOP: Composition and aggregation
+- Refactored ConsoleRPG to use composition over inheritance
+- Implemented equipment system with stat bonuses
+- Created factory pattern for enemy generation
+- Practiced advanced design patterns
+
+Friday, July 18, 2025
+- Game persistence: Saving game state to database
+- Integrated ConsoleRPG with PostgreSQL database
+- Created game save/load functionality using database
+- Implemented player statistics tracking
+- Practiced database integration in game applications
+- Git remote management: Working with remote repositories
+- Configured multiple remotes and practiced push/pull operations
+
+WEEK 8 - JULY 2025
+================================================================================
+
+Monday, July 21, 2025
+- Notification system design: Observer pattern implementation
+- Started NotificationService project
+- Created INotificationProvider interface
+- Implemented multiple notification providers (Email, SMS, Push, Slack, Discord)
+- Practiced interface-based design
+
+Tuesday, July 22, 2025
+- Observer pattern: Understanding event-driven architecture
+- Implemented INotificationObserver interface
+- Created EmailNotificationObserver, SmsNotificationObserver, LoggingObserver
+- Enhanced NotificationService with observer pattern
+- Practiced event handling and notification management
+
+Wednesday, July 23, 2025
+- Command pattern: Implementing undo/redo functionality
+- Created INotificationCommand interface
+- Implemented SendEmailCommand, SendSmsCommand, SendPushCommand
+- Created NotificationCommandInvoker for command execution
+- Practiced command pattern for notification management
+
+Thursday, July 24, 2025
+- Chain of Responsibility: Request processing pipeline
+- Implemented INotificationHandler interface
+- Created EmailNotificationHandler, SmsNotificationHandler, PushNotificationHandler
+- Implemented FallbackNotificationHandler for error scenarios
+- Enhanced NotificationService with handler chain
+
+Friday, July 25, 2025
+- Service architecture: NotificationCenter implementation
+- Completed NotificationService with NotificationCenter class
+- Integrated all design patterns (Observer, Command, Chain of Responsibility)
+- Practiced SOLID principles application in notification system
+- Created comprehensive test scenarios
+- GitHub pull requests: Creating and reviewing pull requests
+- Created pull request for NotificationService project and practiced code review
+
+WEEK 9 - JULY/AUGUST 2025
+================================================================================
+
+Monday, July 28, 2025
+- Advanced PostgreSQL: Full-text search and advanced queries
+- Practiced PostgreSQL full-text search capabilities
+- Created search indexes for optimized queries
+- Implemented complex query optimization
+- Analyzed query execution plans
+
+Tuesday, July 29, 2025
+- Database security: User roles, permissions, and access control
+- Created database users and roles in PostgreSQL
+- Implemented row-level security policies
+- Practiced database backup and restore procedures
+- Enhanced database security practices
+
+Wednesday, July 30, 2025
+- Entity Framework Core: ORM with PostgreSQL
+- Introduction to Entity Framework Core
+- Created DbContext for database operations
+- Implemented code-first database migrations
+- Practiced LINQ to SQL queries
+
+Thursday, July 31, 2025
+- Advanced EF Core: Relationships and navigation properties
+- Configured one-to-many and many-to-many relationships
+- Implemented lazy loading and eager loading strategies
+- Created complex queries using LINQ
+- Practiced database context management
+
+Friday, August 1, 2025
+- Advanced C#: Async/await programming
+- Implemented asynchronous database operations
+- Created async methods for file I/O operations
+- Practiced async/await patterns in C#
+- Enhanced application performance with async operations
+- Git stashing: Saving work in progress
+- Practiced git stash, stash pop, and stash list commands
+
+WEEK 10 - AUGUST 2025
+================================================================================
+
+Monday, August 4, 2025
+- Data Analytics with PostgreSQL: Advanced aggregations
+- Created complex analytical queries for weather data
+- Implemented window functions for data analysis
+- Practiced data mining techniques
+- Created analytical reports from database
+
+Tuesday, August 5, 2025
+- PostgreSQL JSON/JSONB: Working with JSON data
+- Practiced storing and querying JSON data in PostgreSQL
+- Created JSONB columns for flexible data storage
+- Implemented JSON queries and indexing
+- Enhanced data model with JSON support
+
+Wednesday, August 6, 2025
+- Advanced NDDC modeling: Complex database design
+- Designed comprehensive database schema for GIS application
+- Created normalized schema with spatial data considerations
+- Practiced advanced normalization techniques
+- Designed junction tables and relationship mappings
+
+Thursday, August 7, 2025
+- Spatial databases: Introduction to PostGIS
+- Installed PostGIS extension in PostgreSQL
+- Learned spatial data types (POINT, LINESTRING, POLYGON)
+- Practiced spatial queries and operations
+- Created spatial indexes for performance
+
+Friday, August 8, 2025
+- Advanced GIS concepts: Spatial operations
+- Practiced buffer, intersect, and union operations
+- Created spatial queries for geographic analysis
+- Implemented coordinate system transformations
+- Designed spatial data model for GIS application
+- Git workflow strategies: Understanding Git Flow and GitHub Flow
+- Practiced feature branch workflow for AdvancedGISWPF project
+
+WEEK 11 - AUGUST 2025
+================================================================================
+
+Monday, August 11, 2025
+- WPF application development: Introduction to Windows Presentation Foundation
+- Started AdvancedGISWPF project
+- Created WPF application structure
+- Designed MainWindow with XAML
+- Implemented MVVM architecture pattern
+
+Tuesday, August 12, 2025
+- MVVM pattern: Model-View-ViewModel architecture
+- Created MainViewModel class for AdvancedGISWPF
+- Implemented data binding and commands
+- Separated UI logic from business logic
+- Practiced MVVM best practices
+
+Wednesday, August 13, 2025
+- Database integration in WPF: Entity Framework with PostgreSQL
+- Created GISDbContext using Entity Framework Core
+- Configured PostgreSQL connection with PostGIS support
+- Implemented spatial data models (SpatialFeature, Layer)
+- Created database service layer
+
+Thursday, August 14, 2025
+- Advanced WPF: Custom controls and styling
+- Created custom styles for GIS application
+- Implemented ApplicationStyles.xaml
+- Designed modern UI with Material Design principles
+- Enhanced user interface aesthetics
+
+Friday, August 15, 2025
+- GIS functionality: Spatial feature management
+- Implemented layer management in AdvancedGISWPF
+- Created spatial feature CRUD operations
+- Integrated PostGIS spatial queries in application
+- Practiced spatial data visualization
+- GitHub Issues: Creating and managing project issues
+- Created GitHub issues for AdvancedGISWPF features and bug tracking
+
+WEEK 12 - AUGUST 2025
+================================================================================
+
+Monday, August 18, 2025
+- Advanced database operations: Bulk operations and performance
+- Implemented bulk insert operations in PostgreSQL
+- Created optimized database queries
+- Practiced connection pooling and performance tuning
+- Analyzed database query performance
+
+Tuesday, August 19, 2025
+- Data Analytics: Advanced statistical analysis
+- Enhanced WeatherDataAnalyzer with advanced analytics
+- Implemented forecasting algorithms
+- Created trend analysis using PostgreSQL window functions
+- Practiced time series analysis
+
+Wednesday, August 20, 2025
+- SOLID principles review: Comprehensive application
+- Reviewed all SOLID principles in existing projects
+- Refactored code to better follow SOLID principles
+- Identified SOLID violations and corrected them
+- Created documentation for SOLID implementations
+
+Thursday, August 21, 2025
+- Design patterns review: Implementing multiple patterns
+- Reviewed design patterns used in projects
+- Enhanced projects with additional pattern implementations
+- Created pattern documentation
+- Practiced pattern selection and application
+
+Friday, August 22, 2025
+- Code refactoring: Improving code quality
+- Refactored existing projects for better maintainability
+- Improved code organization and structure
+- Enhanced error handling across applications
+- Practiced code review and optimization
+- Git rebase: Understanding rebase vs merge
+- Practiced interactive rebase for cleaner commit history
+
+WEEK 13 - AUGUST/SEPTEMBER 2025
+================================================================================
+
+Monday, August 25, 2025
+- Database optimization: Indexing strategies
+- Created strategic indexes in PostgreSQL databases
+- Analyzed query performance before and after indexing
+- Practiced index maintenance and optimization
+- Implemented covering indexes for common queries
+
+Tuesday, August 26, 2025
+- Advanced PostgreSQL: Partitioning and sharding
+- Learned table partitioning strategies
+- Practiced horizontal and vertical partitioning
+- Created partitioned tables for large datasets
+- Implemented partition management
+
+Wednesday, August 27, 2025
+- Data Analytics project enhancement
+- Enhanced WeatherDataAnalyzer with database integration
+- Created comprehensive data analysis reports
+- Implemented data export functionality
+- Practiced creating analytical dashboards
+
+Thursday, August 28, 2025
+- Advanced GIS features: Spatial analysis
+- Enhanced AdvancedGISWPF with spatial analysis tools
+- Implemented buffer and intersection operations
+- Created spatial query interface
+- Practiced advanced PostGIS operations
+
+Friday, August 29, 2025
+- Application testing: Unit testing and integration testing
+- Created unit tests for core functionality
+- Implemented integration tests for database operations
+- Practiced test-driven development (TDD)
+- Enhanced application reliability
+- Git hooks: Understanding pre-commit and post-commit hooks
+- Created custom Git hooks for code quality checks
+
+Monday, September 1, 2025
+- Project integration: Connecting multiple systems
+- Integrated multiple projects with shared database
+- Created unified data access layer
+- Implemented cross-project functionality
+- Practiced system integration
+- GitHub organization: Managing multiple repositories
+- Organized all projects into GitHub organization structure
+
+WEEK 14 - SEPTEMBER 2025
+================================================================================
+
+Tuesday, September 2, 2025
+- Advanced OOP: Generic programming
+- Implemented generic classes and methods
+- Created generic collections and interfaces
+- Practiced type constraints and covariance
+- Enhanced projects with generic implementations
+
+Wednesday, September 3, 2025
+- Advanced LINQ: Complex queries and operations
+- Practiced advanced LINQ operations
+- Created complex query expressions
+- Implemented custom LINQ extensions
+- Enhanced data manipulation capabilities
+
+Thursday, September 4, 2025
+- PostgreSQL replication: Understanding backup strategies
+- Learned PostgreSQL replication concepts
+- Practiced database backup and restore
+- Created backup automation scripts
+- Implemented disaster recovery procedures
+
+Friday, September 5, 2025
+- Advanced database design: Performance tuning
+- Optimized database schemas for performance
+- Created materialized views for complex queries
+- Implemented query result caching
+- Practiced database performance monitoring
+- GitHub Actions: Introduction to CI/CD concepts
+- Created GitHub Actions workflow for automated testing
+
+WEEK 15 - SEPTEMBER 2025
+================================================================================
+
+Monday, September 8, 2025
+- Comprehensive project review: BankingSystem enhancements
+- Enhanced BankingSystem with advanced features
+- Implemented transaction history tracking in database
+- Created comprehensive banking reports
+- Added audit logging functionality
+
+Tuesday, September 9, 2025
+- Data Analytics: Advanced reporting
+- Created comprehensive analytics reports for WeatherDataAnalyzer
+- Implemented data visualization improvements
+- Created export functionality for reports
+- Practiced creating executive summaries
+
+Wednesday, September 10, 2025
+- GIS application enhancement: Advanced features
+- Enhanced AdvancedGISWPF with additional spatial operations
+- Implemented coordinate system transformations
+- Created layer management interface
+- Added spatial data import/export
+
+Thursday, September 11, 2025
+- Database administration: Advanced PostgreSQL features
+- Practiced advanced PostgreSQL administration
+- Created database maintenance procedures
+- Implemented monitoring and alerting
+- Practiced database security hardening
+
+Friday, September 12, 2025
+- Code documentation: Creating comprehensive documentation
+- Documented all projects with XML comments
+- Created README files for each project
+- Documented database schemas and relationships
+- Practiced technical writing
+- GitHub Wiki: Creating project documentation
+- Created GitHub Wiki pages for major projects
+
+WEEK 16 - SEPTEMBER 2025
+================================================================================
+
+Monday, September 15, 2025
+- Project consolidation: Reviewing all completed projects
+- Reviewed all projects: BankingSystem, ShapeCalculator, NotificationService
+- Reviewed TextAdventureGame, ConsoleRPG, FileManagementSystem
+- Reviewed StudentGradeCalculator, InventoryManagementSystem, WeatherDataAnalyzer
+- Reviewed AdvancedGISWPF project
+
+Tuesday, September 16, 2025
+- Advanced PostgreSQL: Custom functions and procedures
+- Created custom PostgreSQL functions for business logic
+- Implemented stored procedures for complex operations
+- Practiced function optimization
+- Created reusable database functions
+
+Wednesday, September 17, 2025
+- Data Analytics: Machine learning integration concepts
+- Studied machine learning concepts for data analysis
+- Implemented predictive analytics in WeatherDataAnalyzer
+- Created forecasting models using statistical methods
+- Practiced data science concepts
+
+Thursday, September 18, 2025
+- Advanced SOLID principles: Real-world application
+- Applied SOLID principles to complex scenarios
+- Refactored legacy code following SOLID principles
+- Created examples demonstrating each SOLID principle
+- Practiced architectural decision making
+
+Friday, September 19, 2025
+- Database design patterns: Advanced modeling
+- Practiced advanced database design patterns
+- Created optimized schemas for different use cases
+- Implemented design patterns in database design
+- Practiced schema evolution strategies
+- Advanced Git: Cherry-picking commits
+- Practiced git cherry-pick for selective commit application
+
+WEEK 17 - SEPTEMBER 2025
+================================================================================
+
+Monday, September 22, 2025
+- Performance optimization: Application and database tuning
+- Optimized application performance
+- Tuned database queries for better performance
+- Implemented caching strategies
+- Practiced performance profiling
+
+Tuesday, September 23, 2025
+- Advanced C# features: Reflection and dynamic programming
+- Learned reflection API in C#
+- Implemented dynamic object creation
+- Practiced attribute-based programming
+- Enhanced projects with advanced C# features
+
+Wednesday, September 24, 2025
+- PostgreSQL advanced topics: Advanced SQL features
+- Practiced advanced SQL features (CTEs, recursive queries)
+- Implemented complex business logic in SQL
+- Created advanced analytical queries
+- Practiced SQL optimization techniques
+
+Thursday, September 25, 2025
+- Project enhancement: Adding new features
+- Enhanced existing projects with new functionality
+- Implemented user feedback improvements
+- Added new features based on requirements
+- Practiced agile development approach
+
+Friday, September 26, 2025
+- Code quality: Static analysis and code review
+- Performed code reviews on all projects
+- Identified and fixed code smells
+- Implemented best practices
+- Enhanced code maintainability
+- GitHub code review: Pull request reviews and approvals
+- Practiced comprehensive code review process on GitHub
+
+WEEK 18 - SEPTEMBER/OCTOBER 2025
+================================================================================
+
+Monday, September 29, 2025
+- Advanced database concepts: Transactions and concurrency
+- Deep dive into transaction isolation levels
+- Practiced handling concurrent database operations
+- Implemented optimistic and pessimistic locking
+- Created transaction management strategies
+
+Tuesday, September 30, 2025
+- Data Analytics: Advanced visualization
+- Enhanced data visualization in WeatherDataAnalyzer
+- Created advanced charting capabilities
+- Implemented interactive data exploration
+- Practiced data presentation techniques
+
+Wednesday, October 1, 2025
+- GIS application: Advanced spatial operations
+- Implemented advanced spatial analysis in AdvancedGISWPF
+- Created spatial query builder
+- Enhanced layer rendering capabilities
+- Practiced complex spatial operations
+
+Thursday, October 2, 2025
+- Database migration: Schema evolution
+- Practiced database migration strategies
+- Created migration scripts for schema changes
+- Implemented version control for database schemas
+- Practiced safe database evolution
+
+Friday, October 3, 2025
+- Comprehensive testing: End-to-end testing
+- Created comprehensive test suites
+- Implemented integration testing
+- Practiced test automation
+- Enhanced application reliability
+- Git submodules: Managing dependencies
+- Learned about Git submodules for project dependencies
+
+WEEK 19 - OCTOBER 2025
+================================================================================
+
+Monday, October 6, 2025
+- Advanced OOP: Design patterns in depth
+- Studied and implemented multiple design patterns
+- Created pattern examples for each project
+- Practiced pattern selection and application
+- Documented pattern usage
+
+Tuesday, October 7, 2025
+- PostgreSQL: Advanced administration
+- Practiced advanced database administration tasks
+- Created database maintenance procedures
+- Implemented monitoring solutions
+- Practiced troubleshooting database issues
+
+Wednesday, October 8, 2025
+- Data Analytics: Business intelligence concepts
+- Studied business intelligence principles
+- Created analytical reports for business insights
+- Implemented KPI tracking
+- Practiced data-driven decision making
+
+Thursday, October 9, 2025
+- Application architecture: Layered architecture
+- Refactored projects to follow layered architecture
+- Separated concerns into layers (Presentation, Business, Data)
+- Implemented dependency injection
+- Practiced architectural patterns
+
+Friday, October 10, 2025
+- Code refactoring: Continuous improvement
+- Refactored code based on best practices
+- Improved code organization and structure
+- Enhanced code readability
+- Practiced refactoring techniques
+- GitHub releases: Creating and managing releases
+- Created GitHub releases for major project milestones
+
+WEEK 20 - OCTOBER 2025
+================================================================================
+
+Monday, October 13, 2025
+- Advanced PostgreSQL: Full-text search and indexing
+- Implemented full-text search in applications
+- Created specialized indexes for search
+- Optimized search queries
+- Practiced search relevance tuning
+
+Tuesday, October 14, 2025
+- Project integration: Building complete solutions
+- Integrated multiple projects into cohesive solutions
+- Created shared libraries and utilities
+- Implemented cross-project communication
+- Practiced system integration
+
+Wednesday, October 15, 2025
+- Data Analytics: Advanced statistical methods
+- Implemented advanced statistical analysis
+- Created predictive models
+- Practiced regression analysis
+- Enhanced analytical capabilities
+
+Thursday, October 16, 2025
+- GIS development: Advanced features
+- Enhanced AdvancedGISWPF with advanced GIS features
+- Implemented spatial data editing
+- Created advanced visualization tools
+- Practiced GIS application development
+
+Friday, October 17, 2025
+- Database optimization: Query optimization
+- Optimized slow-running queries
+- Created query optimization strategies
+- Implemented query result caching
+- Practiced performance tuning
+- Git bisect: Finding bugs using binary search
+- Practiced git bisect for bug tracking and debugging
+
+WEEK 21 - OCTOBER 2025
+================================================================================
+
+Monday, October 20, 2025
+- SOLID principles: Advanced application
+- Applied SOLID principles to complex scenarios
+- Created SOLID principle examples
+- Refactored code to follow SOLID principles
+- Practiced architectural decision making
+
+Tuesday, October 21, 2025
+- Advanced C#: LINQ and functional programming
+- Practiced advanced LINQ operations
+- Implemented functional programming concepts
+- Created functional-style code
+- Enhanced data manipulation capabilities
+
+Wednesday, October 22, 2025
+- PostgreSQL: Advanced features and extensions
+- Explored PostgreSQL extensions
+- Implemented custom extensions
+- Created database utilities
+- Practiced advanced database features
+
+Thursday, October 23, 2025
+- Project documentation: Comprehensive documentation
+- Created comprehensive documentation for all projects
+- Documented database schemas
+- Created user guides
+- Practiced technical documentation
+
+Friday, October 24, 2025
+- Code review: Quality assurance
+- Performed thorough code reviews
+- Identified improvement opportunities
+- Implemented code quality improvements
+- Practiced code review techniques
+- GitHub collaboration: Contributing to open source
+- Practiced contributing to repositories and understanding open source workflows
+
+WEEK 22 - OCTOBER/NOVEMBER 2025
+================================================================================
+
+Monday, October 27, 2025
+- Advanced database design: Complex schemas
+- Designed complex database schemas
+- Implemented advanced relationships
+- Created optimized data models
+- Practiced database design patterns
+
+Tuesday, October 28, 2025
+- Data Analytics: Advanced reporting and visualization
+- Created advanced analytical reports
+- Implemented interactive dashboards
+- Enhanced data visualization
+- Practiced business intelligence
+
+Wednesday, October 29, 2025
+- Application deployment: Deployment strategies
+- Studied deployment strategies
+- Created deployment procedures
+- Practiced application packaging
+- Prepared applications for deployment
+
+Thursday, October 30, 2025
+- Final project review: Comprehensive review
+- Reviewed all completed projects
+- Verified functionality and quality
+- Created project summaries
+- Prepared final deliverables
+
+Friday, October 31, 2025
+- Code optimization: Final optimizations
+- Performed final code optimizations
+- Enhanced application performance
+- Improved code quality
+- Prepared for project submission
+- Git maintenance: Repository cleanup and optimization
+- Practiced git gc, git prune, and repository maintenance
+
+WEEK 23 - NOVEMBER 2025
+================================================================================
+
+Monday, November 3, 2025
+- Database administration: Final database optimization
+- Performed final database optimizations
+- Created database maintenance documentation
+- Implemented backup procedures
+- Prepared database for production
+
+Tuesday, November 4, 2025
+- Portfolio preparation: Project showcase
+- Prepared project portfolio
+- Created project demonstrations
+- Documented achievements
+- Organized project deliverables
+
+Wednesday, November 5, 2025
+- Knowledge consolidation: Reviewing key concepts
+- Reviewed OOP concepts and principles
+- Reviewed SOLID principles applications
+- Reviewed PostgreSQL database concepts
+- Reviewed data analytics techniques
+
+Thursday, November 6, 2025
+- Final enhancements: Last-minute improvements
+- Made final enhancements to projects
+- Fixed any remaining issues
+- Enhanced documentation
+- Prepared final versions
+
+Friday, November 7, 2025
+- Project presentation: Preparing demonstrations
+- Prepared project presentations
+- Created demonstration scripts
+- Practiced project explanations
+- Organized presentation materials
+- GitHub portfolio: Showcasing projects on GitHub
+- Organized GitHub profile and created project showcase
+
+WEEK 24 - NOVEMBER 2025
+================================================================================
+
+Monday, November 10, 2025
+- Advanced topics review: Complex concepts
+- Reviewed advanced OOP concepts
+- Reviewed advanced database topics
+- Reviewed design patterns
+- Consolidated knowledge
+
+Tuesday, November 11, 2025
+- Final testing: Comprehensive application testing
+- Performed comprehensive testing
+- Verified all functionality
+- Tested database operations
+- Ensured application reliability
+
+Wednesday, November 12, 2025
+- Documentation finalization: Complete documentation
+- Finalized all project documentation
+- Created comprehensive README files
+- Documented database schemas
+- Completed technical documentation
+
+Thursday, November 13, 2025
+- Code cleanup: Final code review
+- Performed final code cleanup
+- Removed unused code
+- Enhanced code comments
+- Improved code organization
+
+Friday, November 14, 2025
+- Project submission: Final preparations
+- Prepared all projects for submission
+- Created project archive
+- Verified all deliverables
+- Organized submission package
+- Git best practices: Final repository organization
+- Ensured all projects are properly version controlled on GitHub
+
+WEEK 25 - NOVEMBER 2025
+================================================================================
+
+Monday, November 17, 2025
+- Training completion: Final review
+- Reviewed all training objectives
+- Verified completion of all projects
+- Prepared training summary
+- Organized training materials
+
+Tuesday, November 18, 2025
+- Knowledge assessment: Skills evaluation
+- Assessed knowledge gained
+- Reviewed key learning outcomes
+- Identified areas of strength
+- Prepared for knowledge transfer
+
+Wednesday, November 19, 2025
+- Final documentation: Training logbook completion
+- Completed training logbook
+- Documented all activities
+- Created training summary
+- Prepared final reports
+
+Thursday, November 20, 2025
+- Training completion: Final day
+- Completed IT training program
+- Submitted all projects and documentation
+- Participated in final review session
+- Concluded training period at SyncGrass Limited
+
+================================================================================
+END OF TRAINING LOG BOOK
+================================================================================
+
+SUMMARY OF KEY ACHIEVEMENTS:
+- Completed 10+ C# applications demonstrating OOP and SOLID principles
+- Mastered PostgreSQL database design and administration
+- Learned NDDC modeling and database normalization
+- Developed advanced GIS application with PostGIS integration
+- Implemented data analytics solutions with PostgreSQL
+- Applied design patterns in real-world scenarios
+- Gained expertise in C# development with database integration
+- Mastered Git version control and GitHub collaboration
+- Learned advanced Git workflows, branching strategies, and pull requests
+- Implemented CI/CD concepts with GitHub Actions
+- Created comprehensive project repositories on GitHub
+
+PROJECTS DEVELOPED:
+1. BankingSystem - OOP and SOLID principles
+2. ShapeCalculator - Design patterns and inheritance
+3. NotificationService - Observer, Command, Chain of Responsibility patterns
+4. TextAdventureGame - Command pattern and game architecture
+5. ConsoleRPG - Combat system and game mechanics
+6. FileManagementSystem - File I/O and collections
+7. StudentGradeCalculator - Database integration
+8. InventoryManagementSystem - CRUD operations
+9. WeatherDataAnalyzer - Data analytics and statistics
+10. AdvancedGISWPF - WPF, MVVM, PostGIS integration
+11. CSharpBeginnerCodes - C# fundamentals
+
+================================================================================
+

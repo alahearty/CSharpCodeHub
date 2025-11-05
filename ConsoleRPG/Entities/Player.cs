@@ -74,7 +74,7 @@ public class Player : ICombatant
         }
     }
 
-    public void Attack(ICombatant target)
+    public new void Attack(ICombatant target)
     {
         if (!IsAlive || target == null || !target.IsAlive)
             return;

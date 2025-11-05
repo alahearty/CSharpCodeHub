@@ -1,6 +1,7 @@
 namespace ConsoleRPG.Combat;
 
 using ConsoleRPG.Core;
+using ConsoleRPG.Entities;
 
 // Combat system demonstrating STRATEGY PATTERN
 public class CombatSystem

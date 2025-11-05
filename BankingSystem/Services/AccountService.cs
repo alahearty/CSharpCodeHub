@@ -1,3 +1,5 @@
+using BankingSystem.Models;
+
 namespace BankingSystem.Services;
 
 // Service demonstrating SINGLE RESPONSIBILITY PRINCIPLE
