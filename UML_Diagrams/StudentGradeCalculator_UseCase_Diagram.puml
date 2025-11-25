@@ -1,0 +1,43 @@
+@startuml StudentGradeCalculator_UseCase_Diagram
+
+' Student Grade Calculator Use Case Diagram
+
+actor Student
+actor Teacher
+actor Administrator
+
+rectangle "Student Grade Calculator" {
+    usecase "Add Student" as UC1
+    usecase "Add Grade" as UC2
+    usecase "View Student Info" as UC3
+    usecase "Calculate GPA" as UC4
+    usecase "Calculate Average Grade" as UC5
+    usecase "Get Letter Grade" as UC6
+    usecase "View All Subjects" as UC7
+    usecase "View Grade History" as UC8
+    usecase "Update Student Info" as UC9
+}
+
+Student --> UC3
+Student --> UC4
+Student --> UC5
+Student --> UC7
+Student --> UC8
+
+Teacher --> UC1
+Teacher --> UC2
+Teacher --> UC3
+Teacher --> UC4
+Teacher --> UC5
+Teacher --> UC6
+Teacher --> UC7
+Teacher --> UC8
+
+Administrator --> UC1
+Administrator --> UC9
+
+UC4 ..> UC5 : <<include>>
+UC4 ..> UC6 : <<include>>
+
+@enduml
+

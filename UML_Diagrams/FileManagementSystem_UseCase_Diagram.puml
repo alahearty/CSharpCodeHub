@@ -1,0 +1,34 @@
+@startuml FileManagementSystem_UseCase_Diagram
+
+' File Management System Use Case Diagram
+
+actor User
+actor System
+
+rectangle "File Management System" {
+    usecase "List Files" as UC1
+    usecase "Search Files" as UC2
+    usecase "Create File" as UC3
+    usecase "Delete File" as UC4
+    usecase "View File Info" as UC5
+    usecase "Navigate Directory" as UC6
+    usecase "View Directory Info" as UC7
+    usecase "Format File Size" as UC8
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+
+System --> UC8
+
+UC1 ..> UC5 : <<extend>>
+UC2 ..> UC5 : <<extend>>
+UC7 ..> UC8 : <<include>>
+
+@enduml
+

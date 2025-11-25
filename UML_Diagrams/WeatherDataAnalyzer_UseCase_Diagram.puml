@@ -1,0 +1,45 @@
+@startuml WeatherDataAnalyzer_UseCase_Diagram
+
+' Weather Data Analyzer Use Case Diagram
+
+actor User
+actor Analyst
+actor System
+
+rectangle "Weather Data Analyzer" {
+    usecase "Add Weather Record" as UC1
+    usecase "View Weather Record" as UC2
+    usecase "Analyze Temperature" as UC3
+    usecase "Analyze Precipitation" as UC4
+    usecase "Detect Extreme Weather" as UC5
+    usecase "Calculate Statistics" as UC6
+    usecase "View Seasonal Patterns" as UC7
+    usecase "Generate Report" as UC8
+    usecase "Export Data" as UC9
+}
+
+User --> UC1
+User --> UC2
+User --> UC8
+
+Analyst --> UC1
+Analyst --> UC2
+Analyst --> UC3
+Analyst --> UC4
+Analyst --> UC5
+Analyst --> UC6
+Analyst --> UC7
+Analyst --> UC8
+Analyst --> UC9
+
+System --> UC5
+System --> UC6
+System --> UC7
+
+UC3 ..> UC6 : <<include>>
+UC4 ..> UC6 : <<include>>
+UC5 ..> UC2 : <<extend>>
+UC8 ..> UC6 : <<include>>
+
+@enduml
+

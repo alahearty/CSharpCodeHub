@@ -1,0 +1,41 @@
+@startuml WeatherDataAnalyzer_Class_Diagram
+
+' Weather Data Analyzer Class Diagram
+
+class WeatherRecord {
+    + Id: int
+    + Date: DateTime
+    + Location: string
+    + Temperature: double
+    + Humidity: double
+    + Pressure: double
+    + WindSpeed: double
+    + WindDirection: string
+    + Precipitation: double
+    + WeatherCondition: string
+    + Visibility: double
+    + UVIndex: double
+    + RecordedAt: DateTime
+    + TemperatureUnit: string {readonly}
+    + HumidityUnit: string {readonly}
+    + PressureUnit: string {readonly}
+    + WindSpeedUnit: string {readonly}
+    + PrecipitationUnit: string {readonly}
+    + VisibilityUnit: string {readonly}
+    + Season: string {readonly}
+    + TemperatureDescription: string {readonly}
+    + HumidityDescription: string {readonly}
+    + WindDescription: string {readonly}
+    + IsExtremeTemperature: bool {readonly}
+    + IsExtremeHumidity: bool {readonly}
+    + IsExtremeWind: bool {readonly}
+    + IsExtremePrecipitation: bool {readonly}
+    + GetWeatherSummary(): string
+    + GetDetailedInfo(): string
+    - GetWeatherIcon(): string
+}
+
+note right of WeatherRecord : Encapsulates weather data\nwith calculated properties
+
+@enduml
+

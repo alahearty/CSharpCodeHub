@@ -1,0 +1,55 @@
+@startuml NotificationService_UseCase_Diagram
+
+' Notification Service Use Case Diagram
+
+actor Application
+actor User
+actor System
+
+rectangle "Notification Service" {
+    usecase "Send Notification" as UC1
+    usecase "Send Email" as UC2
+    usecase "Send SMS" as UC3
+    usecase "Send Push Notification" as UC4
+    usecase "Send Slack Message" as UC5
+    usecase "Send Discord Message" as UC6
+    usecase "Subscribe to Notifications" as UC7
+    usecase "Unsubscribe from Notifications" as UC8
+    usecase "Execute Command" as UC9
+    usecase "Undo Command" as UC10
+    usecase "Handle Notification" as UC11
+    usecase "Add Provider" as UC12
+    usecase "Remove Provider" as UC13
+    usecase "Get Available Providers" as UC14
+}
+
+Application --> UC1
+Application --> UC12
+Application --> UC13
+Application --> UC14
+
+User --> UC7
+User --> UC8
+
+System --> UC2
+System --> UC3
+System --> UC4
+System --> UC5
+System --> UC6
+System --> UC9
+System --> UC10
+System --> UC11
+
+UC1 ..> UC2 : <<include>>
+UC1 ..> UC3 : <<include>>
+UC1 ..> UC4 : <<include>>
+UC1 ..> UC5 : <<include>>
+UC1 ..> UC6 : <<include>>
+UC1 ..> UC11 : <<include>>
+UC1 ..> UC7 : <<extend>>
+
+UC9 ..> UC2 : <<extend>>
+UC9 ..> UC3 : <<extend>>
+
+@enduml
+

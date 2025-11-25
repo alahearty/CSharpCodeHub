@@ -16,12 +16,6 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}">
 
-    <Window.Resources>
-        <Style x:Key="RibbonTabStyle" TargetType="fluent:RibbonTabItem">
-            <Setter Property="Header" Value="{Binding Header}"/>
-            <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
-        </Style>
-    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -31,172 +25,57 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Fluent Ribbon -->
-        <fluent:Ribbon Grid.Row="0" x:Name="MainRibbon">
-            <fluent:Ribbon.ApplicationMenu>
-                <fluent:ApplicationMenu>
-                    <fluent:ApplicationMenu.MainPane>
-                        <fluent:MainPane>
-                            <fluent:Button Header="New Project" 
-                                          Icon="pack://application:,,,/Images/new-project.png"
-                                          Command="{Binding NewProjectCommand}"/>
-                            <fluent:Button Header="Open Project" 
-                                          Icon="pack://application:,,,/Images/open-project.png"
-                                          Command="{Binding OpenProjectCommand}"/>
-                            <fluent:Button Header="Save Project" 
-                                          Icon="pack://application:,,,/Images/save-project.png"
-                                          Command="{Binding SaveProjectCommand}"/>
-                            <fluent:Separator/>
-                            <fluent:Button Header="Import Data" 
-                                          Icon="pack://application:,,,/Images/import.png"
-                                          Command="{Binding ImportDataCommand}"/>
-                            <fluent:Button Header="Export Data" 
-                                          Icon="pack://application:,,,/Images/export.png"
-                                          Command="{Binding ExportDataCommand}"/>
-                            <fluent:Separator/>
-                            <fluent:Button Header="Settings" 
-                                          Icon="pack://application:,,,/Images/settings.png"
-                                          Command="{Binding SettingsCommand}"/>
-                            <fluent:Button Header="Exit" 
-                                          Icon="pack://application:,,,/Images/exit.png"
-                                          Command="{Binding ExitCommand}"/>
-                        </fluent:MainPane>
-                    </fluent:ApplicationMenu.MainPane>
-                </fluent:ApplicationMenu>
-            </fluent:Ribbon.ApplicationMenu>
-
-            <!-- Home Tab -->
-            <fluent:RibbonTabItem Header="Home">
-                <fluent:RibbonGroupBox Header="Project">
-                    <fluent:Button Header="New" 
-                                  Icon="pack://application:,,,/Images/new.png"
-                                  Command="{Binding NewProjectCommand}"/>
-                    <fluent:Button Header="Open" 
-                                  Icon="pack://application:,,,/Images/open.png"
-                                  Command="{Binding OpenProjectCommand}"/>
-                    <fluent:Button Header="Save" 
-                                  Icon="pack://application:,,,/Images/save.png"
-                                  Command="{Binding SaveProjectCommand}"/>
-                </fluent:RibbonGroupBox>
-
-                <fluent:RibbonGroupBox Header="Data">
-                    <fluent:Button Header="Import" 
-                                  Icon="pack://application:,,,/Images/import.png"
-                                  Command="{Binding ImportDataCommand}"/>
-                    <fluent:Button Header="Export" 
-                                  Icon="pack://application:,,,/Images/export.png"
-                                  Command="{Binding ExportDataCommand}"/>
-                    <fluent:Button Header="Database" 
-                                  Icon="pack://application:,,,/Images/database.png"
-                                  Command="{Binding DatabaseCommand}"/>
-                </fluent:RibbonGroupBox>
-
-                <fluent:RibbonGroupBox Header="Analysis">
-                    <fluent:Button Header="Spatial Analysis" 
-                                  Icon="pack://application:,,,/Images/analysis.png"
-                                  Command="{Binding SpatialAnalysisCommand}"/>
-                    <fluent:Button Header="Statistics" 
-                                  Icon="pack://application:,,,/Images/stats.png"
-                                  Command="{Binding StatisticsCommand}"/>
-                    <fluent:Button Header="Charts" 
-                                  Icon="pack://application:,,,/Images/charts.png"
-                                  Command="{Binding ChartsCommand}"/>
-                </fluent:RibbonGroupBox>
-            </fluent:RibbonTabItem>
-
-            <!-- Map Tab -->
-            <fluent:RibbonTabItem Header="Map">
-                <fluent:RibbonGroupBox Header="Navigation">
-                    <fluent:Button Header="Zoom In" 
-                                  Icon="pack://application:,,,/Images/zoom-in.png"
-                                  Command="{Binding ZoomInCommand}"/>
-                    <fluent:Button Header="Zoom Out" 
-                                  Icon="pack://application:,,,/Images/zoom-out.png"
-                                  Command="{Binding ZoomOutCommand}"/>
-                    <fluent:Button Header="Pan" 
-                                  Icon="pack://application:,,,/Images/pan.png"
-                                  Command="{Binding PanCommand}"/>
-                    <fluent:Button Header="Full Extent" 
-                                  Icon="pack://application:,,,/Images/full-extent.png"
-                                  Command="{Binding FullExtentCommand}"/>
-                </fluent:RibbonGroupBox>
-
-                <fluent:RibbonGroupBox Header="Layers">
-                    <fluent:Button Header="Add Layer" 
-                                  Icon="pack://application:,,,/Images/add-layer.png"
-                                  Command="{Binding AddLayerCommand}"/>
-                    <fluent:Button Header="Remove Layer" 
-                                  Icon="pack://application:,,,/Images/remove-layer.png"
-                                  Command="{Binding RemoveLayerCommand}"/>
-                    <fluent:Button Header="Layer Properties" 
-                                  Icon="pack://application:,,,/Images/layer-properties.png"
-                                  Command="{Binding LayerPropertiesCommand}"/>
-                </fluent:RibbonGroupBox>
-
-                <fluent:RibbonGroupBox Header="Selection">
-                    <fluent:Button Header="Select" 
-                                  Icon="pack://application:,,,/Images/select.png"
-                                  Command="{Binding SelectCommand}"/>
-                    <fluent:Button Header="Clear Selection" 
-                                  Icon="pack://application:,,,/Images/clear-selection.png"
-                                  Command="{Binding ClearSelectionCommand}"/>
-                </fluent:RibbonGroupBox>
-            </fluent:RibbonTabItem>
-
-            <!-- Analysis Tab -->
-            <fluent:RibbonTabItem Header="Analysis">
-                <fluent:RibbonGroupBox Header="Spatial Analysis">
-                    <fluent:Button Header="Buffer" 
-                                  Icon="pack://application:,,,/Images/buffer.png"
-                                  Command="{Binding BufferCommand}"/>
-                    <fluent:Button Header="Intersect" 
-                                  Icon="pack://application:,,,/Images/intersect.png"
-                                  Command="{Binding IntersectCommand}"/>
-                    <fluent:Button Header="Union" 
-                                  Icon="pack://application:,,,/Images/union.png"
-                                  Command="{Binding UnionCommand}"/>
-                    <fluent:Button Header="Distance" 
-                                  Icon="pack://application:,,,/Images/distance.png"
-                                  Command="{Binding DistanceCommand}"/>
-                </fluent:RibbonGroupBox>
-
-                <fluent:RibbonGroupBox Header="Statistical Analysis">
-                    <fluent:Button Header="Descriptive Stats" 
-                                  Icon="pack://application:,,,/Images/descriptive-stats.png"
-                                  Command="{Binding DescriptiveStatsCommand}"/>
-                    <fluent:Button Header="Spatial Autocorrelation" 
-                                  Icon="pack://application:,,,/Images/spatial-autocorr.png"
-                                  Command="{Binding SpatialAutocorrCommand}"/>
-                    <fluent:Button Header="Hot Spot Analysis" 
-                                  Icon="pack://application:,,,/Images/hotspot.png"
-                                  Command="{Binding HotSpotCommand}"/>
-                </fluent:RibbonGroupBox>
-            </fluent:RibbonTabItem>
-
-            <!-- View Tab -->
-            <fluent:RibbonTabItem Header="View">
-                <fluent:RibbonGroupBox Header="Layout">
-                    <fluent:Button Header="Print Layout" 
-                                  Icon="pack://application:,,,/Images/print-layout.png"
-                                  Command="{Binding PrintLayoutCommand}"/>
-                    <fluent:Button Header="Export Map" 
-                                  Icon="pack://application:,,,/Images/export-map.png"
-                                  Command="{Binding ExportMapCommand}"/>
-                </fluent:RibbonGroupBox>
-
-                <fluent:RibbonGroupBox Header="Windows">
-                    <fluent:Button Header="Layer Manager" 
-                                  Icon="pack://application:,,,/Images/layer-manager.png"
-                                  Command="{Binding LayerManagerCommand}"/>
-                    <fluent:Button Header="Attribute Table" 
-                                  Icon="pack://application:,,,/Images/attribute-table.png"
-                                  Command="{Binding AttributeTableCommand}"/>
-                    <fluent:Button Header="Toolbox" 
-                                  Icon="pack://application:,,,/Images/toolbox.png"
-                                  Command="{Binding ToolboxCommand}"/>
-                </fluent:RibbonGroupBox>
-            </fluent:RibbonTabItem>
-        </fluent:Ribbon>
+        <!-- Menu Bar -->
+        <materialDesign:Card Grid.Row="0" Padding="0" Margin="0">
+            <Menu Background="{DynamicResource MaterialDesignToolBarBackground}">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New Project" 
+                              Command="{Binding NewProjectCommand}"/>
+                    <MenuItem Header="_Open Project"
+                              Command="{Binding OpenProjectCommand}"/>
+                    <MenuItem Header="_Save Project"
+                              Command="{Binding SaveProjectCommand}"/>
+                    <Separator/>
+                    <MenuItem Header="_Import Data"
+                              Command="{Binding ImportDataCommand}"/>
+                    <MenuItem Header="_Export Data"
+                              Command="{Binding ExportDataCommand}"/>
+                    <Separator/>
+                    <MenuItem Header="_Settings"
+                              Command="{Binding SettingsCommand}"/>
+                    <MenuItem Header="E_xit"
+                              Command="{Binding ExitCommand}"/>
+                </MenuItem>
+                <MenuItem Header="_Map">
+                    <MenuItem Header="_Zoom In" Command="{Binding ZoomInCommand}"/>
+                    <MenuItem Header="Zoom O_ut" Command="{Binding ZoomOutCommand}"/>
+                    <MenuItem Header="_Pan" Command="{Binding PanCommand}"/>
+                    <MenuItem Header="Full _Extent" Command="{Binding FullExtentCommand}"/>
+                    <Separator/>
+                    <MenuItem Header="_Add Layer" Command="{Binding AddLayerCommand}"/>
+                    <MenuItem Header="_Remove Layer" Command="{Binding RemoveLayerCommand}"/>
+                    <MenuItem Header="Layer _Properties" Command="{Binding LayerPropertiesCommand}"/>
+                </MenuItem>
+                <MenuItem Header="_Analysis">
+                    <MenuItem Header="_Buffer" Command="{Binding BufferCommand}"/>
+                    <MenuItem Header="_Intersect" Command="{Binding IntersectCommand}"/>
+                    <MenuItem Header="_Union" Command="{Binding UnionCommand}"/>
+                    <MenuItem Header="_Distance" Command="{Binding DistanceCommand}"/>
+                    <Separator/>
+                    <MenuItem Header="Descriptive _Stats" Command="{Binding DescriptiveStatsCommand}"/>
+                    <MenuItem Header="Spatial _Autocorrelation" Command="{Binding SpatialAutocorrCommand}"/>
+                    <MenuItem Header="_Hot Spot Analysis" Command="{Binding HotSpotCommand}"/>
+                </MenuItem>
+                <MenuItem Header="_View">
+                    <MenuItem Header="_Print Layout" Command="{Binding PrintLayoutCommand}"/>
+                    <MenuItem Header="Export _Map" Command="{Binding ExportMapCommand}"/>
+                    <Separator/>
+                    <MenuItem Header="Layer _Manager" Command="{Binding LayerManagerCommand}"/>
+                    <MenuItem Header="_Attribute Table" Command="{Binding AttributeTableCommand}"/>
+                    <MenuItem Header="_Toolbox" Command="{Binding ToolboxCommand}"/>
+                </MenuItem>
+            </Menu>
+        </materialDesign:Card>
 
         <!-- Toolbar -->
         <ToolBarTray Grid.Row="1" Background="{DynamicResource MaterialDesignToolBarBackground}">
@@ -313,7 +192,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     
-                    <TextBlock Grid.Row="0" Text="Properties & Charts" 
+                    <TextBlock Grid.Row="0" Text="Properties &amp; Charts" 
                                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                                Margin="0,0,0,8"/>
                     

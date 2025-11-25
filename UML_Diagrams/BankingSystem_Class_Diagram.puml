@@ -1,0 +1,104 @@
+@startuml BankingSystem_Class_Diagram
+
+' Banking System Class Diagram
+
+abstract class BankAccount {
+    - _balance: decimal
+    - _accountNumber: string
+    - _accountHolderName: string
+    - _createdDate: DateTime
+    + AccountNumber: string {readonly}
+    + AccountHolderName: string
+    + Balance: decimal {readonly}
+    + CreatedDate: DateTime {readonly}
+    + {abstract} AccountType: string
+    + {abstract} Withdraw(amount: decimal): bool
+    + {abstract} Deposit(amount: decimal): bool
+    + GetAccountInfo(): string
+    # ValidateAmount(amount: decimal): bool
+}
+
+interface IInterestBearing {
+    + CalculateInterest(): decimal
+}
+
+class SavingsAccount {
+    - _interestRate: decimal
+    + InterestRate: decimal {readonly}
+    + Withdraw(amount: decimal): bool
+    + Deposit(amount: decimal): bool
+    + CalculateInterest(): decimal
+    + GetAccountInfo(): string
+}
+
+class CheckingAccount {
+    - _overdraftLimit: decimal
+    + OverdraftLimit: decimal {readonly}
+    + Withdraw(amount: decimal): bool
+    + Deposit(amount: decimal): bool
+    + GetAccountInfo(): string
+}
+
+class BusinessAccount {
+    - _creditLimit: decimal
+    - _businessName: string
+    + CreditLimit: decimal {readonly}
+    + BusinessName: string {readonly}
+    + Withdraw(amount: decimal): bool
+    + Deposit(amount: decimal): bool
+    + GetAccountInfo(): string
+}
+
+enum TransactionType {
+    Deposit
+    Withdrawal
+    Transfer
+}
+
+class Transaction {
+    + TransactionId: string {readonly}
+    + AccountNumber: string {readonly}
+    + Amount: decimal {readonly}
+    + Type: TransactionType {readonly}
+    + Timestamp: DateTime {readonly}
+    + IsSuccessful: bool
+}
+
+class AccountService {
+    + UpdateAccountInfo(account: BankAccount, newHolderName: string): void
+    + ValidateAccount(account: BankAccount): bool
+    + GetAccountSummary(account: BankAccount): string
+}
+
+class TransactionService {
+    + ProcessTransaction(account: BankAccount, amount: decimal, type: TransactionType): Transaction
+    + GetTransactionHistory(accountNumber: string): List<Transaction>
+    + CalculateTransactionFee(transaction: Transaction): decimal
+}
+
+class NotificationService {
+    + SendTransactionNotification(transaction: Transaction): void
+    + SendAccountAlert(account: BankAccount, alertType: string, message: string): void
+    + SendLowBalanceWarning(account: BankAccount): void
+}
+
+' Relationships
+BankAccount <|-- SavingsAccount
+BankAccount <|-- CheckingAccount
+BankAccount <|-- BusinessAccount
+IInterestBearing <|.. SavingsAccount
+TransactionService --> BankAccount : uses
+TransactionService --> Transaction : creates
+AccountService --> BankAccount : manages
+NotificationService --> Transaction : notifies
+NotificationService --> BankAccount : alerts
+Transaction --> TransactionType : uses
+
+note right of BankAccount : Abstract base class\ndemonstrating ABSTRACTION
+
+note right of SavingsAccount : Implements IInterestBearing\nfor INTERFACE SEGREGATION
+
+note right of AccountService : SINGLE RESPONSIBILITY\nPRINCIPLE
+
+@enduml
+

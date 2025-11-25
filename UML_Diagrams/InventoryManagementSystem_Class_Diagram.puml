@@ -1,0 +1,37 @@
+@startuml InventoryManagementSystem_Class_Diagram
+
+' Inventory Management System Class Diagram
+
+class Product {
+    + Id: int
+    + Name: string
+    + Description: string
+    + Category: string
+    + SKU: string
+    + Price: decimal
+    + Cost: decimal
+    + Quantity: int
+    + MinStockLevel: int
+    + MaxStockLevel: int
+    + Unit: string
+    + SupplierId: int
+    + CreatedDate: DateTime
+    + LastModifiedDate: DateTime
+    + IsActive: bool
+    + TotalValue: decimal {readonly}
+    + ProfitMargin: decimal {readonly}
+    + ProfitMarginPercentage: decimal {readonly}
+    + IsLowStock: bool {readonly}
+    + IsOutOfStock: bool {readonly}
+    + IsOverStocked: bool {readonly}
+    + UpdateStock(quantityChange: int, reason: string): void
+    + UpdatePrice(newPrice: decimal): void
+    + UpdateCost(newCost: decimal): void
+    + GetStockStatus(): string
+    + GetStockStatusIcon(): string
+}
+
+note right of Product : Encapsulates product data\nwith business logic for\nstock management
+
+@enduml
+

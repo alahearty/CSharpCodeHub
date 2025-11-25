@@ -1,0 +1,40 @@
+@startuml FileManagementSystem_Class_Diagram
+
+' File Management System Class Diagram
+
+class FileInfo {
+    + Name: string
+    + FullPath: string
+    + Extension: string
+    + SizeInBytes: long
+    + CreatedDate: DateTime
+    + ModifiedDate: DateTime
+    + LastAccessDate: DateTime
+    + Attributes: FileAttributes
+    + IsDirectory: bool
+    + IsReadOnly: bool
+    + IsHidden: bool
+    + SizeFormatted: string {readonly}
+    + FileType: string {readonly}
+}
+
+class FileManager {
+    - _currentDirectory: string
+    + ShowCurrentDirectory(): void
+    + ListFiles(): void
+    + SearchFiles(): void
+    + CreateFile(): void
+    + DeleteFile(): void
+    + ShowFileInfo(): void
+    - GetFileList(directory: string): List<FileInfo>
+    - CreateCustomFileInfo(fileInfo: System.IO.FileInfo): FileInfo
+    - GetAllFilesRecursively(directory: string): List<FileInfo>
+    - FormatBytes(bytes: long): string
+}
+
+FileManager --> FileInfo : creates/manages
+
+note right of FileManager : SINGLE RESPONSIBILITY\nPRINCIPLE\nHandles all file operations
+
+@enduml
+

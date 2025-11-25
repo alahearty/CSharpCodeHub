@@ -1,0 +1,172 @@
+@startuml NotificationService_Class_Diagram
+
+' Notification Service Class Diagram
+
+enum NotificationPriority {
+    Low
+    Normal
+    High
+    Critical
+}
+
+class NotificationMessage {
+    + Id: Guid
+    + Content: string
+    + Priority: NotificationPriority
+    + Recipient: string
+    + Timestamp: DateTime
+    + Metadata: Dictionary<string, object>
+}
+
+interface INotificationProvider {
+    + Name: string {readonly}
+    + IsAvailable: bool {readonly}
+    + Send(message: NotificationMessage): string
+    + SendAsync(message: NotificationMessage): Task<string>
+}
+
+class EmailNotificationProvider {
+    + Send(message: NotificationMessage): string
+    + SendAsync(message: NotificationMessage): Task<string>
+}
+
+class SmsNotificationProvider {
+    + Send(message: NotificationMessage): string
+    + SendAsync(message: NotificationMessage): Task<string>
+}
+
+class PushNotificationProvider {
+    + Send(message: NotificationMessage): string
+    + SendAsync(message: NotificationMessage): Task<string>
+}
+
+class SlackNotificationProvider {
+    + Send(message: NotificationMessage): string
+    + SendAsync(message: NotificationMessage): Task<string>
+}
+
+class DiscordNotificationProvider {
+    + Send(message: NotificationMessage): string
+    + SendAsync(message: NotificationMessage): Task<string>
+}
+
+interface INotificationObserver {
+    + ObserverName: string {readonly}
+    + Update(message: NotificationMessage): void
+}
+
+class EmailNotificationObserver {
+    + Update(message: NotificationMessage): void
+}
+
+class SmsNotificationObserver {
+    + Update(message: NotificationMessage): void
+}
+
+class LoggingObserver {
+    + Update(message: NotificationMessage): void
+}
+
+interface INotificationCommand {
+    + Execute(): void
+    + Undo(): void
+}
+
+class SendEmailCommand {
+    - _message: NotificationMessage
+    - _provider: INotificationProvider
+    + Execute(): void
+    + Undo(): void
+}
+
+class SendSmsCommand {
+    - _message: NotificationMessage
+    - _provider: INotificationProvider
+    + Execute(): void
+    + Undo(): void
+}
+
+interface INotificationHandler {
+    + Handle(message: NotificationMessage): bool
+    + SetNext(handler: INotificationHandler): void
+}
+
+class EmailNotificationHandler {
+    - _next: INotificationHandler
+    + Handle(message: NotificationMessage): bool
+    + SetNext(handler: INotificationHandler): void
+}
+
+class SmsNotificationHandler {
+    - _next: INotificationHandler
+    + Handle(message: NotificationMessage): bool
+    + SetNext(handler: INotificationHandler): void
+}
+
+class FallbackNotificationHandler {
+    - _next: INotificationHandler
+    + Handle(message: NotificationMessage): bool
+    + SetNext(handler: INotificationHandler): void
+}
+
+class NotificationService {
+    - _providers: List<INotificationProvider>
+    + AddProvider(provider: INotificationProvider): void
+    + RemoveProvider(provider: INotificationProvider): void
+    + SendNotification(message: NotificationMessage): void
+    + SendNotificationAsync(message: NotificationMessage): Task
+    + GetAvailableProviders(): IEnumerable<INotificationProvider>
+}
+
+class NotificationCenter {
+    - _observers: List<INotificationObserver>
+    + Subscribe(observer: INotificationObserver): void
+    + Unsubscribe(observer: INotificationObserver): void
+    + Notify(message: NotificationMessage): void
+}
+
+class NotificationCommandInvoker {
+    - _history: Stack<INotificationCommand>
+    + ExecuteCommand(command: INotificationCommand): void
+    + UndoLastCommand(): void
+}
+
+' Relationships
+INotificationProvider <|.. EmailNotificationProvider
+INotificationProvider <|.. SmsNotificationProvider
+INotificationProvider <|.. PushNotificationProvider
+INotificationProvider <|.. SlackNotificationProvider
+INotificationProvider <|.. DiscordNotificationProvider
+
+INotificationObserver <|.. EmailNotificationObserver
+INotificationObserver <|.. SmsNotificationObserver
+INotificationObserver <|.. LoggingObserver
+
+INotificationCommand <|.. SendEmailCommand
+INotificationCommand <|.. SendSmsCommand
+
+INotificationHandler <|.. EmailNotificationHandler
+INotificationHandler <|.. SmsNotificationHandler
+INotificationHandler <|.. FallbackNotificationHandler
+
+NotificationService --> INotificationProvider : uses
+NotificationCenter --> INotificationObserver : notifies
+NotificationCommandInvoker --> INotificationCommand : executes
+SendEmailCommand --> INotificationProvider : uses
+SendSmsCommand --> INotificationProvider : uses
+EmailNotificationHandler --> INotificationHandler : chain
+SmsNotificationHandler --> INotificationHandler : chain
+FallbackNotificationHandler --> INotificationHandler : chain
+
+NotificationMessage --> NotificationPriority : uses
+
+note right of NotificationService : DEPENDENCY INVERSION\nPRINCIPLE\nDepends on abstractions
+
+note right of NotificationCenter : OBSERVER PATTERN\nSubject
+
+note right of NotificationCommandInvoker : COMMAND PATTERN\nInvoker
+
+note right of EmailNotificationHandler : CHAIN OF RESPONSIBILITY\nPATTERN
+
+@enduml
+

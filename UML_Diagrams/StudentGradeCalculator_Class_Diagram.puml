@@ -1,0 +1,30 @@
+@startuml StudentGradeCalculator_Class_Diagram
+
+' Student Grade Calculator Class Diagram
+
+class Student {
+    + Id: int
+    + FirstName: string
+    + LastName: string
+    + Email: string
+    + DateOfBirth: DateTime
+    + Major: string
+    + YearLevel: int
+    + Grades: Dictionary<string, List<double>>
+    + CreatedDate: DateTime
+    + FullName: string {readonly}
+    + Age: int {readonly}
+    + AddGrade(subject: string, grade: double): void
+    + GetAverageGrade(subject: string): double
+    + GetOverallAverage(): double
+    + GetLetterGrade(percentage: double): string
+    + GetGPA(): double
+    + GetSubjects(): List<string>
+    + GetTotalAssignments(): int
+    - GetGradePoints(letterGrade: string): double
+}
+
+note right of Student : Encapsulates student data\nand grade calculations
+
+@enduml
+

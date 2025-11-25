@@ -1,0 +1,171 @@
+@startuml TextAdventureGame_Class_Diagram
+
+' Text Adventure Game Class Diagram
+
+interface IGameObject {
+    + Id: string {readonly}
+    + Name: string {readonly}
+    + Description: string {readonly}
+    + IsActive: bool
+}
+
+interface ILocation {
+    + ConnectedLocations: List<ILocation> {readonly}
+    + Objects: List<IGameObject> {readonly}
+    + AddObject(obj: IGameObject): void
+    + RemoveObject(obj: IGameObject): void
+    + ConnectTo(location: ILocation): void
+}
+
+interface ICommand {
+    + Name: string {readonly}
+    + Description: string {readonly}
+    + CanExecute(player: Player): bool
+    + Execute(player: Player, parameters: string[]): void
+}
+
+abstract class Item {
+    # _weight: int
+    # _value: int
+    + Weight: int {readonly}
+    + Value: int {readonly}
+    + {abstract} Use(player: Player): void
+    + GetDetailedDescription(): string
+}
+
+class HealthPotion {
+    - _healAmount: int
+    + Use(player: Player): void
+    + GetDetailedDescription(): string
+}
+
+class Key {
+    - _unlocksLocationId: string
+    + Use(player: Player): void
+    + CanUnlock(locationId: string): bool
+}
+
+class Treasure {
+    + Use(player: Player): void
+}
+
+class Location {
+    + Id: string {readonly}
+    + Name: string {readonly}
+    + Description: string {readonly}
+    + IsActive: bool
+    + ConnectedLocations: List<ILocation> {readonly}
+    + Objects: List<IGameObject> {readonly}
+    + AddObject(obj: IGameObject): void
+    + RemoveObject(obj: IGameObject): void
+    + ConnectTo(location: ILocation): void
+}
+
+class Player {
+    - _health: int
+    - _maxHealth: int
+    - _inventoryCapacity: int
+    - _inventory: List<IGameObject>
+    - _currentLocation: ILocation
+    + Health: int {readonly}
+    + MaxHealth: int {readonly}
+    + InventoryCapacity: int {readonly}
+    + Inventory: IReadOnlyList<IGameObject> {readonly}
+    + CurrentLocation: ILocation {readonly}
+    + MoveTo(location: ILocation): void
+    + TakeDamage(damage: int): void
+    + Heal(amount: int): void
+    + AddToInventory(item: IGameObject): bool
+    + RemoveFromInventory(item: IGameObject): void
+    + ShowInventory(): void
+}
+
+class MoveCommand {
+    + CanExecute(player: Player): bool
+    + Execute(player: Player, parameters: string[]): void
+    - ShowAvailableLocations(player: Player): void
+    - ShowLocationDescription(player: Player): void
+}
+
+class TakeCommand {
+    + CanExecute(player: Player): bool
+    + Execute(player: Player, parameters: string[]): void
+}
+
+class UseCommand {
+    + CanExecute(player: Player): bool
+    + Execute(player: Player, parameters: string[]): void
+}
+
+class InventoryCommand {
+    + CanExecute(player: Player): bool
+    + Execute(player: Player, parameters: string[]): void
+}
+
+class LookCommand {
+    + CanExecute(player: Player): bool
+    + Execute(player: Player, parameters: string[]): void
+}
+
+class HelpCommand {
+    + CanExecute(player: Player): bool
+    + Execute(player: Player, parameters: string[]): void
+}
+
+class GameEngine {
+    - _player: Player
+    - _commands: List<ICommand>
+    - _world: GameWorld
+    - _isRunning: bool
+    + StartGame(): void
+    - ProcessCommand(input: string): void
+    - ShowLocationDescription(player: Player): void
+}
+
+class GameWorld {
+    + StartingLocation: ILocation {readonly}
+    + CreateWorld(): void
+    - CreateLocations(): void
+    - CreateItems(): void
+}
+
+' Relationships
+IGameObject <|.. Player
+IGameObject <|.. Item
+IGameObject <|.. Location
+
+ILocation <|.. Location
+
+ICommand <|.. MoveCommand
+ICommand <|.. TakeCommand
+ICommand <|.. UseCommand
+ICommand <|.. InventoryCommand
+ICommand <|.. LookCommand
+ICommand <|.. HelpCommand
+
+Item <|-- HealthPotion
+Item <|-- Key
+Item <|-- Treasure
+
+Player --> ILocation : current location
+Player --> IGameObject : inventory
+Location --> ILocation : connected to
+Location --> IGameObject : contains
+GameEngine --> Player : manages
+GameEngine --> ICommand : uses
+GameEngine --> GameWorld : uses
+GameWorld --> Location : creates
+GameWorld --> Item : creates
+MoveCommand --> Player : operates on
+TakeCommand --> Player : operates on
+UseCommand --> Player : operates on
+HealthPotion --> Player : uses
+
+note right of Player : INHERITANCE and\nENCAPSULATION
+
+note right of ICommand : COMMAND PATTERN
+
+note right of GameEngine : DEPENDENCY INVERSION\nPRINCIPLE
+
+@enduml
+

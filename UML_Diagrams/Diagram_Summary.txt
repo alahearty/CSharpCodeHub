@@ -1,0 +1,98 @@
+================================================================================
+UML DIAGRAMS SUMMARY - C# PROJECTS
+================================================================================
+
+This directory contains UML Class Diagrams and Use Case Diagrams for 7 projects:
+
+1. BANKING SYSTEM
+   - Class Diagram: BankingSystem_Class_Diagram.puml
+   - Use Case Diagram: BankingSystem_UseCase_Diagram.puml
+   - Key Classes: BankAccount (abstract), SavingsAccount, CheckingAccount, 
+     BusinessAccount, Transaction, AccountService, TransactionService, 
+     NotificationService
+   - Patterns: Inheritance, Interface Segregation, Single Responsibility
+
+2. STUDENT GRADE CALCULATOR
+   - Class Diagram: StudentGradeCalculator_Class_Diagram.puml
+   - Use Case Diagram: StudentGradeCalculator_UseCase_Diagram.puml
+   - Key Classes: Student
+   - Features: Grade management, GPA calculation, letter grade conversion
+
+3. FILE MANAGEMENT SYSTEM
+   - Class Diagram: FileManagementSystem_Class_Diagram.puml
+   - Use Case Diagram: FileManagementSystem_UseCase_Diagram.puml
+   - Key Classes: FileInfo, FileManager
+   - Features: File operations, directory management, file search
+
+4. NOTIFICATION SERVICE
+   - Class Diagram: NotificationService_Class_Diagram.puml
+   - Use Case Diagram: NotificationService_UseCase_Diagram.puml
+   - Key Classes: NotificationService, NotificationCenter, 
+     INotificationProvider, INotificationObserver, INotificationCommand,
+     INotificationHandler
+   - Patterns: Observer, Command, Chain of Responsibility, Dependency Inversion
+
+5. TEXT ADVENTURE GAME
+   - Class Diagram: TextAdventureGame_Class_Diagram.puml
+   - Use Case Diagram: TextAdventureGame_UseCase_Diagram.puml
+   - Key Classes: Player, Item, Location, GameEngine, ICommand implementations
+   - Patterns: Command Pattern, Inheritance, Polymorphism
+
+6. WEATHER DATA ANALYZER
+   - Class Diagram: WeatherDataAnalyzer_Class_Diagram.puml
+   - Use Case Diagram: WeatherDataAnalyzer_UseCase_Diagram.puml
+   - Key Classes: WeatherRecord
+   - Features: Weather data storage, statistical analysis, extreme weather detection
+
+7. INVENTORY MANAGEMENT SYSTEM
+   - Class Diagram: InventoryManagementSystem_Class_Diagram.puml
+   - Use Case Diagram: InventoryManagementSystem_UseCase_Diagram.puml
+   - Key Classes: Product
+   - Features: Stock management, price/cost tracking, profit margin calculation
+
+================================================================================
+HOW TO VIEW DIAGRAMS
+================================================================================
+
+1. Online Viewer:
+   - Visit: http://www.plantuml.com/plantuml/uml/
+   - Copy the .puml file content
+   - Paste and view the diagram
+
+2. VS Code:
+   - Install "PlantUML" extension
+   - Open .puml files
+   - Preview with Ctrl+Shift+P > "PlantUML: Preview Current Diagram"
+
+3. IntelliJ IDEA:
+   - Install PlantUML plugin
+   - Open .puml files
+   - Right-click > "PlantUML" > "Preview Diagram"
+
+4. Command Line:
+   - Download PlantUML jar from: https://plantuml.com/download
+   - Run: java -jar plantuml.jar *.puml
+   - Generates PNG/SVG files
+
+================================================================================
+DIAGRAM NOTATION
+================================================================================
+
+Class Diagrams:
+- + : public
+- - : private
+- # : protected
+- {readonly} : read-only property
+- {abstract} : abstract method/property
+- <|-- : inheritance
+- <|.. : implementation
+- --> : association/dependency
+
+Use Case Diagrams:
+- Actor : External entity
+- Use Case : System functionality
+- <<include>> : Required relationship
+- <<extend>> : Optional relationship
+
+================================================================================
+
